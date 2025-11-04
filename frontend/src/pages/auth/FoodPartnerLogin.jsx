@@ -1,40 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const FoodPartnerLogin = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError('');
+
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const response = await axios.post('http://localhost:3000/api/auth/food-partner/login',
-      { email, password }, { withCredentials: true }
-    );
-    console.log('Food partner logged in successfully:', response.data);
-    if (response.data.success) {
-      navigate("/create-food");
-    } else {
-      console.error("Login failed:", response.data.message);
-      alert("Login failed. Please check your credentials.");
+
+    try {
+      const response = await axios.post('http://localhost:3000/api/auth/foodpartner/login', 
+        { email, password }, 
+        { withCredentials: true }
+      );
+      
+      console.log('Login successful:', response.data);
+      navigate("/food-partner/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(error.response?.data?.message || "Login failed. Please check your credentials.");
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
     <div className="form-page">
-      <form className="form-card" aria-label="Food partner login form">
+      <form className="form-card" aria-label="Food partner login form" onSubmit={handleSubmit}>
         <h1 className="form-title">Partner sign in</h1>
         <p className="form-sub">Access your partner dashboard</p>
 
         <label className="label">Email
-          <input className="input" name="email" type="email" placeholder="your@email.com" required />
+          <input 
+            className="input" 
+            name="email" 
+            type="email" 
+            placeholder="your@email.com" 
+            required 
+            disabled={isLoading}
+          />
         </label>
 
         <label className="label">Password
-          <input className="input" name="password" type="password" placeholder="••••••••" required />
+          <input 
+            className="input" 
+            name="password" 
+            type="password" 
+            placeholder="••••••••" 
+            required 
+            disabled={isLoading}
+          />
         </label>
 
-        <button type="submit" className="btn">Sign in</button>
+        {error && <div className="error-message">{error}</div>}
+
+        <button type="submit" className="btn" disabled={isLoading}>
+          {isLoading ? 'Signing in...' : 'Sign in'}
+        </button>
 
         <div className="form-links">
           <Link to="/food-partner/register" className="form-link">Create new partner account</Link>
