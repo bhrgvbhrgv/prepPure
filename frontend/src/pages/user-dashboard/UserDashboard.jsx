@@ -123,7 +123,7 @@ const UserDashboard = () => {
           <p>What would you like to eat today?</p>
         </div>
         <div className="quick-actions">
-          <Link to="/live-cooking" className="dashboard-btn">
+          <Link to="/user/dashboard/liveorder" className="dashboard-btn">
             <i className="fas fa-video"></i> Order from Live Cook
           </Link>
           <Link to="/user/dashboard/foodshots" className="dashboard-btn">Watch FoodShots</Link>

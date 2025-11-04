@@ -12,11 +12,15 @@ import UserDashboard from '../pages/user-dashboard/UserDashboard.jsx';
 
 import FoodShots from '../pages/user-dashboard/FoodShots.jsx';
 
+import LiveOrder from '../pages/user-dashboard/LiveOrder.jsx';
+
 import FoodPartnerDashboard from '../pages/food-partner-dashboard/FoodPartnerDashboard.jsx';
 
 import CreateFood from '../pages/food-partner-dashboard/CreateFood.jsx';
 
 import FoodPartnerAnalytics from '../pages/food-partner-dashboard/FoodPartnerAnalytics.jsx';
+
+
 
 
 
@@ -35,6 +39,7 @@ const AppRoutes = () => {
 
         <Route path="/user/dashboard" element={<UserDashboard />} />
         <Route path="/user/dashboard/foodshots" element={<FoodShots />} />
+        <Route path="/user/dashboard/liveorder" element={<LiveOrder />} />
 
         <Route path="/food-partner/dashboard" element={<FoodPartnerDashboard />} /> 
         <Route path="/food-partner/dashboard/create-food" element={<CreateFood />} />
