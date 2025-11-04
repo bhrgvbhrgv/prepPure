@@ -15,32 +15,23 @@ const FoodPartnerRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    try {
-      const response = await axios.post('http://localhost:3000/api/auth/foodpartner/register',
-        {
-          name: business,  // Changed to match backend expectation
-          contactName,
-          phone,
-          address,
-          email,
-          password
-        }, 
-        { withCredentials: true }
-      );
+    const response = await axios.post('http://localhost:3000/api/auth/food-partner/register',
+      {
+        business,
+        contactName,
+        phone,
+        address,
+        email,
+        password
+      }, { withCredentials: true }
+    );
 
-      console.log('Registration response:', response.data);
-      
-      console.log('User registered and logged in successfully');
-        navigate("/food-partner/login");
-      } catch (loginError) {
-      console.error("Auto-login failed:", loginError.response?.data?.message);
-        // If auto-login fails, redirect to login page with a message
-        navigate("/food-partner/login", { 
-          state: { 
-            message: "Registration successful! Please log in with your credentials." 
-          }
-        });
-      }
+    if (response.data.success) {
+      navigate("/create-food");
+    } else {
+      console.error("Registration failed:", response.data.message);
+      alert("Registration failed. Please try again.");
+    }
   };
 
   return (

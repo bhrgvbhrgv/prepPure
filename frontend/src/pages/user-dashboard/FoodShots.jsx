@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import axios from 'axios';
 import './FoodShots.css';
 
@@ -19,6 +19,13 @@ const FoodShots = () => {
 		{ _id: 'd5', video: '/videos/vid5.mp4', description: 'Spicy chilli chicken', foodPartner: '5' },
 		{ _id: 'd6', video: '/videos/vid6.mp4', description: 'Sweet dessert platter', foodPartner: '6' }
 	];
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/food")
+    .then(response => {
+      setVideos(response.data.foodItems);
+    })
+  })
 
 	useEffect(() => {
 		const fetchVideos = async () => {
@@ -61,7 +68,7 @@ const FoodShots = () => {
 		return () => { videoRefs.current.forEach(el => { if (el) { observer.unobserve(el); el.pause(); } }); };
 	}, [videos]);
 
-	const handleVisitStore = (id) => navigate(`/food-partner/${id}`);
+	const handleVisitStore = (id) => navigate("/food-partner/"+itemAxisPredicate.foodPartner); //`/food-partner/${id}`
 
 	return (
 		<div className="foodshots-container reels" ref={containerRef}>
