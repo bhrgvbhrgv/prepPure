@@ -18,7 +18,7 @@ const UserRegister = () => {
 
     try {
       // First register the user
-      const registerResponse = await axios.post('http://localhost:3000/api/auth/user/register', 
+      const registerResponse = await axios.post('https://prep-pure-k5mw.vercel.app/api/auth/user/register', 
         { 
           fullName, 
           email, 
@@ -30,7 +30,7 @@ const UserRegister = () => {
       // If we got a response (no error thrown), proceed with login
       try {
         // Attempt to login immediately after registration
-        const loginResponse = await axios.post('http://localhost:3000/api/auth/user/login',
+        const loginResponse = await axios.post('https://prep-pure-k5mw.vercel.app/api/auth/user/login',
           {
             email,
             password
