@@ -32,7 +32,9 @@ app.use((req, res, next) => {
 });
 
 app.use(cors(corsOptionss));
-
+app.get('/', (req, res) => {
+    res.send('API is running...');
+})
 app.listen(3000,()=>{
     console.log("Server is running on port 3000");
 })
