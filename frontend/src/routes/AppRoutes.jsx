@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserRegister from '../pages/auth/UserRegister.jsx'
 import UserLogin from '../pages/auth/UserLogin.jsx'
@@ -23,8 +23,9 @@ import FoodPartnerAnalytics from '../pages/food-partner-dashboard/FoodPartnerAna
 
 
 
-
 const AppRoutes = () => {
+  const user = localStorage.getItem('user');
+  const [username, setUserName] = useState(user)
   return (
     <Router>
       <Routes>
@@ -37,7 +38,7 @@ const AppRoutes = () => {
 
         <Route path="/" element={<Home />} />
 
-        <Route path="/user/dashboard" element={<UserDashboard />} />
+        <Route path="/user/dashboard" element={<UserDashboard userName={username}/>} />
         <Route path="/user/dashboard/foodshots" element={<FoodShots />} />
         <Route path="/user/dashboard/liveorder" element={<LiveOrder />} />
 

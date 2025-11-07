@@ -3,11 +3,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './UserDashboard.css';
 
-const UserDashboard = () => {
-  const [userName, setUserName] = useState('');
+const UserDashboard = ({userName}) => {
+  console.log("Username prop:", userName);
+  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+useEffect(()=>{
+if(!userName){
+  console.log("No username, redirecting to login");
+    navigate('/user/login');
+    
+  }
+  }, [])
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -22,14 +30,16 @@ const UserDashboard = () => {
   }, []);
 
   const handleLogout = async () => {
-    try {
-      await axios.post('http://localhost:3000/api/auth/user/logout', {}, 
-        { withCredentials: true }
-      );
-      navigate('/user/login');
-    } catch (error) {
-      console.error('Logout error:', error);
-    }
+    localStorage.removeItem('user');
+    navigate('/user/login');
+    // try {
+    //   await axios.post('http://localhost:3000/api/auth/user/logout', {}, 
+    //     { withCredentials: true }
+    //   );
+    //   navigate('/user/login');
+    // } catch (error) {
+    //   console.error('Logout error:', error);
+    // }
   };
 
   useEffect(() => {
@@ -113,6 +123,8 @@ const UserDashboard = () => {
       image: "/food/food3.jpg"
     }
   ];
+  
+  
 
   return (
     <div className="dashboard-container">
