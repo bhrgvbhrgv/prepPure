@@ -1,10 +1,12 @@
 //start server
 require('dotenv').config();
+const cors = require("cors");
 const app = require('./src/app');
 const connectDB = require('./src/db/db');
 const PORT = process.env.PORT || 5000;
 
 connectDB();
+
 
 const allowedOrigins = ["https://prep-pure.vercel.app"];
 
