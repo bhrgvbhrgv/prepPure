@@ -120,12 +120,11 @@
 }
 
 .visit-store-btn {
-	
 	background: white;
 	color: black;
 	border: none;
 	padding: 0.6rem 1.2rem;
-	border-radius: 100px;
+	border-radius: 8px;
 	cursor: pointer;
 	font-size: 0.9rem;
 	font-weight: 600;
@@ -135,23 +134,6 @@
 }
 
 .visit-store-btn:hover { background: var(--accent-2); transform: translateY(-2px); }
-
-.buy-now-btn {
-	
-	background: white;
-	color: black;
-	border: none;
-	padding: 0.6rem 1.2rem;
-	border-radius: 100px;
-	cursor: pointer;
-	font-size: 0.9rem;
-	font-weight: 600;
-	transition: transform 0.15s ease, background-color 0.15s ease;
-	pointer-events: auto; /* Make button clickable */
-	margin-top: 0.5rem;
-}
-
-.buy-now-btn:hover { background: var(--accent-2); transform: translateY(-2px); }
 
 .loading-state,
 .error-state,

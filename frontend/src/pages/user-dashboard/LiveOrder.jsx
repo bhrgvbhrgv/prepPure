@@ -89,15 +89,9 @@ const LiveOrder = () => {
                             <div className="foodshot-overlay top">
                                 <div className="foodshot-content">
                                     <p className="foodshot-description" title={video.description}>{video.description}</p>
-                                    <div>
                                     <button className="visit-store-btn" onClick={() => handleVisitStore(video.foodPartner)}>
                                         Visit Store
                                     </button>
-                                    <button className="buy-now-btn" onClick={() => handleVisitStore(video.foodPartner)}>
-                                        Buy now
-                                    </button>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
