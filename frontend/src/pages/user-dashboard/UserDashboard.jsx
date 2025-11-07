@@ -33,7 +33,7 @@ if(!userName){
     localStorage.removeItem('user');
     navigate('/user/login');
     // try {
-    //   await axios.post('https://prep-pure-k5mw.vercel.app/api/auth/user/logout', {}, 
+    //   await axios.post('https://prep-pure-rocy.vercel.app/api/auth/user/logout', {}, 
     //     { withCredentials: true }
     //   );
     //   navigate('/user/login');
@@ -45,7 +45,7 @@ if(!userName){
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('https://prep-pure-k5mw.vercel.app/api/auth/user/me', {
+        const response = await axios.get('https://prep-pure-rocy.vercel.app/api/auth/user/me', {
           withCredentials: true
         });
         console.log('User data response:', response.data);

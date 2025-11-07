@@ -16,7 +16,7 @@ const FoodPartnerRegister = () => {
     const password = e.target.password.value;
 
     try {
-      const response = await axios.post('https://prep-pure-k5mw.vercel.app/api/auth/foodpartner/register',
+      const response = await axios.post('https://prep-pure-rocy.vercel.app/api/auth/foodpartner/register',
         {
           name: business,  // Changed to match backend expectation
           contactName,

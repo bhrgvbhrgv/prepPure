@@ -30,7 +30,7 @@ const FoodPartnerDashboard = () => {
   useEffect(() => {
     const fetchPartnerData = async () => {
       try {
-        const response = await axios.get('https://prep-pure-k5mw.vercel.app/api/auth/foodpartner/profile', {
+        const response = await axios.get('https://prep-pure-rocy.vercel.app/api/auth/foodpartner/profile', {
           withCredentials: true
         });
         console.log('Partner data response:', response.data);
@@ -56,7 +56,7 @@ const FoodPartnerDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://prep-pure-k5mw.vercel.app/api/auth/foodpartner/logout', {}, {
+      await axios.post('https://prep-pure-rocy.vercel.app/api/auth/foodpartner/logout', {}, {
         withCredentials: true
       });
       navigate('/food-partner/login');
