@@ -25,7 +25,7 @@ const UserLogin = () => {
       );
       
       console.log('Login successful:', response.data);
-       localStorage.setItem('user', "Arpit");
+       localStorage.setItem('user', response.data.user.fullName);
     
       // Successful login should redirect to the home page or dashboard
       navigate("/user/dashboard");  // Changed from /user/dashboard to / since that's likely the main app route

@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './UserDashboard.css';
 
-const UserDashboard = ({userName}) => {
-  console.log("Username prop:", userName);
+const UserDashboard = ({}) => {
+ const userName = localStorage.getItem('user');
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
