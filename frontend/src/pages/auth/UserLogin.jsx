@@ -15,25 +15,24 @@ const UserLogin = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    localStorage.setItem('user', "Arpit");
-    navigate("/user/dashboard");
+
  
 
-    // try {
-    //   const response = await axios.post('https://prep-pure-rocy.vercel.app/api/auth/user/login', 
-    //     { email, password }, 
-    //     { withCredentials: true }
-    //   );
+    try {
+      const response = await axios.post('https://prep-pure-rocy.vercel.app/api/auth/user/login', 
+        { email, password }, 
+        { withCredentials: true }
+      );
       
-    //   console.log('Login successful:', response.data);
-    //   // Successful login should redirect to the home page or dashboard
-    //   navigate("/user/dashboard");  // Changed from /user/dashboard to / since that's likely the main app route
-    // } catch (error) {
-    //   console.error("Login error:", error);
-    //   setError(error.response?.data?.message || "Login failed. Please check your credentials.");
-    // } finally {
-    //   setIsLoading(false);
-    // }
+      console.log('Login successful:', response.data);
+      // Successful login should redirect to the home page or dashboard
+      navigate("/user/dashboard");  // Changed from /user/dashboard to / since that's likely the main app route
+    } catch (error) {
+      console.error("Login error:", error);
+      setError(error.response?.data?.message || "Login failed. Please check your credentials.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
