@@ -50,30 +50,36 @@ const FoodPartnerRegister = () => {
         <p className="form-sub">Create your partner account</p>
 
         <label className="label">Business name
-          <input className="input" name="business" type="text" placeholder="Your restaurant" required minLength={2} />
+          <input className="input" name="business" type="text" placeholder="e.g., Taj Mahal Restaurant" required minLength={2} />
+          <small className="helper-text">Required. At least 2 characters.</small>
         </label>
 
         <div className="form-row">
           <label className="label">Contact person name
-            <input className="input" name="contactName" type="text" placeholder="Full name" required minLength={2} />
+            <input className="input" name="contactName" type="text" placeholder="e.g., Rajesh Kumar" required minLength={2} />
+            <small className="helper-text">Required. At least 2 characters.</small>
           </label>
 
           <label className="label">Phone number
-            <input className="input" name="phone" type="tel" placeholder="Contact number" required pattern="[0-9]{10}" />
+            <input className="input" name="phone" type="tel" placeholder="e.g., 9876543210" required pattern="[0-9]{10}" />
+            <small className="helper-text">Required. Exactly 10 digits.</small>
           </label>
         </div>
 
         <label className="label">Business address
-          <textarea className="input" name="address" placeholder="Complete business address" rows="2" required minLength={10}></textarea>
+          <textarea className="input" name="address" placeholder="e.g., 123 Main Street, Mumbai, Maharashtra 400001" rows="2" required minLength={10}></textarea>
+          <small className="helper-text">Required. At least 10 characters. Provide complete address.</small>
         </label>
 
         <div className="form-row">
           <label className="label">Contact email
-            <input className="input" name="email" type="email" placeholder="your@email.com" required />
+            <input className="input" name="email" type="email" placeholder="e.g., contact@restaurant.com" required />
+            <small className="helper-text">Required. Must be a valid email address.</small>
           </label>
 
           <label className="label">Password
-            <input className="input" name="password" type="password" placeholder="••••••••" required minLength={8} />
+            <input className="input" name="password" type="password" placeholder="Enter a strong password" required minLength={8} />
+            <small className="helper-text">Required. At least 8 characters long.</small>
           </label>
         </div>
 

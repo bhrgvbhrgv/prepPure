@@ -44,3 +44,11 @@
 .form-card {
   padding-bottom: 2rem;
 }
+
+.helper-text {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
